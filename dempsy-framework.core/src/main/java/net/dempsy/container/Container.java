@@ -136,6 +136,13 @@ public abstract class Container implements Service, KeyspaceChangeListener, Outp
         return dispatcher;
     }
 
+    /**
+     * Returns the current number of messages pending (queued but not yet processed) in this container.
+     */
+    public int getNumPending() {
+        return numPending.get();
+    }
+
     public Container setMaxPendingMessagesPerContainer(final int maxPendingMessagesPerContainer) {
         this.maxPendingMessagesPerContainer = maxPendingMessagesPerContainer;
         return this;
